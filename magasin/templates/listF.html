@@ -1,0 +1,11 @@
+{% extends 'magasin/base.html' %}
+{% block content %}
+<h2>Liste des fournisseurs</h2>
+  <ul>
+    {% for fournisseur in fournisseurs %}
+      <li>{{ fournisseur.nom }}</li>
+    {% empty %}
+      <li>Aucun fournisseur trouvé</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

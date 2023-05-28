@@ -13,6 +13,7 @@ urlpatterns = [
     path('register/',views.register, name = 'register'),
     path('api/category/', CategoryAPIView.as_view()),
     path('api/produits/', ProduitAPIView.as_view(), name='produits-api'),
+    path('listF/', views.listeFournisseurs, name='listF'),
     path('api/', include(router.urls)),
 ]
 

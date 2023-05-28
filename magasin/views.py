@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
-from .models import Produit
+from .models import Produit,Fournisseur
 from .forms import ProduitForm, FournisseurForm,UserRegistrationForm
 from django.shortcuts import render
 from django.shortcuts import redirect
@@ -33,6 +33,9 @@ def mag(request):
 def vitrine(request):
     list = Produit.objects.all()
     return render(request, 'magasin/vitrine.html', {'list': list})
+def listeFournisseurs(request):
+    fournisseurs = Fournisseur.objects.all()
+    return render(request, 'listF.html', {'fournisseurs': fournisseurs})
 
 
 def order(request):
@@ -92,7 +95,7 @@ def register(request):
             user = authenticate(username=username, password=password)
             login(request,user)
             messages.success(request, f'Coucou {username}, Votre compte a étécréé avec succès !')
-            return redirect('home')
-        else :
-            form = UserRegistrationForm()
-            return render(request,'registration/register.html',{'form' : form})
+            return redirect('index')
+    else :
+        form = UserRegistrationForm()
+    return render(request,'registration/register.html',{'form' : form})

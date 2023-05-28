@@ -29,12 +29,39 @@
               <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8880/">Home</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'index' %}">product <span class="sr-only"></span></a>
+              <a class="nav-link" href="http://127.0.0.1:8880/magasin/">product <span class="sr-only"></span></a>
               </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:8880/admin/">Admin</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="http://127.0.0.1:8880/magasin/vitrine">Vitrine<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="http://127.0.0.1:8880/magasin/order">Commander<span class="sr-only"></span></a>
+                  </li>
+                  
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li class="nav-item active">
+                  <a class="nav-link" href="http://127.0.0.1:8880/magasin/nouveauFournisseur">Nouveau fournisseur<span class="sr-only"></span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8880/admin/">Admin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8880/magasin/mag">Add Produit</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8880/magasin/listF/">Liste fournisseur</a>
+                  </li>
+                
+                
+              </ul>
             </li>
-           
+            
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categorie
@@ -58,19 +85,27 @@
               </li>
               <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                <li class="nav-item active">
-                <a class="nav-link" href="#">{{user}},</a>
-                </li>
-                <li class="nav-item active">
-                <a class="nav-link" href="{% url 'logout' %}">Déconnexion</a>
-                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    
+                      {{user}}
+                      
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'logout' %}">Déconnexion</a>
+                      </li>
+                      
+                    
+                    
+                  </ul>
+
+                
                 
                 {% else %}
+                
                 <li class="nav-item active">
-                <a class="nav-link" href="{% url 'login' %}">Connexion</a>
-                </li>
-                <li class="nav-item active">
-                    <a href="{% url 'register' %}"> S'inscrire </a>
+                    <a href="http://127.0.0.1:8880/magasin/register/"> S'inscrire </a>
                 </li>
                 {% endif %}
                 </ul>
