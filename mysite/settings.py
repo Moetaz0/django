@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'magasin.apps.MagasinConfig',
-    
+    'rest_framework',
 
 ]
 
